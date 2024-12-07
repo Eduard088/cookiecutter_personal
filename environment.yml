@@ -1,0 +1,25 @@
+# conda env create --file environment.yml
+name: {{ cookiecutter.project_slug }}
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  {% if cookiecutter.prohect_packages == "All" -%}
+  - jupyterlab
+  - python={{ cookiecutter.python_version }}
+  - nodejs
+  - matplotlib
+  - numpy
+  - conda-forge::scikit-learn
+  - pandas
+  - seaborn
+  - nbdime
+  - git
+  - conda-forge::cookiecutter
+  - conda-forge::kagglehub
+  - ipywidgets
+  - openpyxl
+  - conda-forge::imbalanced-learn
+  {% endif -%}
+prefix: /home/barea/anaconda3/envs/{{ cookiecutter.project_slug }}
